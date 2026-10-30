@@ -1,12 +1,23 @@
-name: Publicar Pílulas de Tecnologia
+name: Gerar e publicar Pílulas de Tecnologia
 
 on:
   push:
     branches: [main]
+  schedule:
+    # 01:00 UTC = 22:00 em America/Fortaleza (UTC−3)
+    - cron: '0 1 * * *'
   workflow_dispatch:
+    inputs:
+      generate:
+        description: 'Gerar e publicar uma nova pílula agora?'
+        type: boolean
+        default: false
+        required: false
 
+# O commit feito com GITHUB_TOKEN não dispara outro workflow.
+# Por isso, este mesmo workflow gera, versiona, compila e publica.
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -17,17 +28,41 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Baixar projeto
         uses: actions/checkout@v6
+        with:
+          persist-credentials: true
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '24'
       - name: Instalar dependências
         run: npm install --no-audit --no-fund
-      - name: Validar os artigos e assets
+      - name: Verificar gerador
+        run: node --test scripts/generate-daily.test.mjs
+      - name: Gerar artigo e ilustração com IA
+        if: github.event_name == 'schedule' || inputs.generate == true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TEXT_MODEL: gpt-5.4-mini
+          OPENAI_IMAGE_MODEL: gpt-image-1-mini
+        run: node scripts/generate-daily.mjs
+      - name: Validar artigos e imagens
         run: npm run validate
+      - name: Versionar nova pílula
+        if: github.event_name == 'schedule' || inputs.generate == true
+        run: |
+          git add src/data/articles.json public/assets/
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'content: publicar pílula diária [skip ci]'
+            git push origin HEAD:main
+          else
+            echo 'Nenhum conteúdo novo nesta data.'
+          fi
       - name: Gerar site estático Astro
         run: npm run build
       - name: Configurar GitHub Pages
@@ -40,6 +75,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
