@@ -16,14 +16,14 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <div class="side-link soon"><span class="dot"></span>Sistemas distribuídos</div>
     <div class="side-link soon"><span class="dot"></span>Cloud &amp; DevOps</div>
     <a class="side-link" data-side-category="AI Engineering" href="#artigos"><span class="dot"></span>AI Engineering</a>
-    <div class="sidebar-note"><strong>Uma ideia por dia.</strong><br/>Conteúdo prático e visual com exemplos C#, diagramas, entrevistas e exercícios.</div>
+    <div class="sidebar-note"><strong>IA + engenharia, todos os dias.</strong><br/>Conteúdo prático e visual com exemplos C#, diagramas, entrevistas e exercícios.</div>
   </aside>
   <main class="content">
     <section class="hero" aria-labelledby="hero-title">
       <div>
         <span class="tag">📚 Biblioteca aberta de estudos</span>
-        <h1 id="hero-title">Aprenda engenharia de software, uma pílula por dia.</h1>
-        <p>Uma biblioteca pessoal de Eduardo Oliveira. Do ASP.NET Core à arquitetura de software, com foco especial em Spec-Driven Development e AI Engineering — sempre com o Byte ajudando a visualizar cada conceito.</p>
+        <h1 id="hero-title">Duas pílulas por dia. Aprendizado em dobro.</h1>
+        <p>Uma biblioteca pessoal de Eduardo Oliveira. A proposta é estudar diariamente um tema de Inteligência Artificial e outro de engenharia de software — com exemplos práticos, diagramas e o Byte ajudando a visualizar cada conceito.</p>
         <div class="hero-stats"><span>✦ Textos curtos</span><span>◈ Diagramas claros</span><span>⌘ Código real</span></div>
         <div class="stats-panel"><span><strong>{articles.length}</strong> pílulas disponíveis</span><span><strong>2</strong> trilhas em andamento</span></div>
       </div>
@@ -51,11 +51,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             </div>
           </a>
         ))}
-        <div class="coming-card" id="coming-card"><div class="emoji">🌱</div><span class="tag soft">Em evolução</span><h3>Uma trilha que cresce a cada dia</h3><p>Novas pílulas serão adicionadas aqui. Você pode voltar e revisar os conceitos anteriores quando quiser.</p></div>
+        <div class="coming-card" id="coming-card"><div class="emoji">🌱</div><span class="tag soft">Em evolução</span><h3>Uma trilha que cresce a cada dia</h3><p>Nossa proposta editorial combina uma pílula de AI Engineering e outra de engenharia de software. Volte e revise quando quiser.</p></div>
       </div>
       <div class="empty-state" id="empty-state" role="status">Ainda não há artigos encontrados. Experimente outra busca.</div>
     </section>
-    <footer class="footer">Pílulas de Tecnologia · Eduardo Oliveira · Ilustrações originais do Byte · © 2026</footer>
+    <footer class="footer">Pílulas de Tecnologia · Eduardo Oliveira · Ilustrações originais do Byte · <a href={`${base}rss.xml`}>Assinar RSS</a> · © 2026</footer>
   </main>
 </div>
 </SiteLayout>

@@ -45,3 +45,9 @@ npm run build
 Adicione um objeto em `src/data/articles.json`, seguindo o esquema existente, e sua capa em `public/assets/`. O workflow fará o deploy quando o commit chegar à branch `main`.
 
 **Cuidados editoriais:** revise exemplos técnicos, links e dados; não publique informações corporativas confidenciais.
+
+## Política editorial e LinkedIn
+
+Consulte [EDITORIAL.md](EDITORIAL.md). O plano de conteúdo combina **uma pílula de IA e outra de engenharia por dia**; as duas são entregues no ChatGPT e só são enviadas ao blog mediante solicitação do autor.
+
+O feed RSS público é `https://hedu59.github.io/pilulas-de-tecnologia/rss.xml`. Para compartilhar automaticamente cada novo artigo no perfil pessoal, conecte **RSS by Zapier → New Item in Feed** com **LinkedIn → Create Share Update**, usando o GUID/URL para identificar novidades, e mapeie título, resumo, imagem e link. Não é preciso uma chave da API da OpenAI para isso.
