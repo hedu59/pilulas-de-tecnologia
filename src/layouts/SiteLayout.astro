@@ -1,6 +1,6 @@
 ---
 interface Props { title: string; description?: string; image?: string }
-const { title, description = 'Duas trilhas complementares: uma pílula de IA e outra de engenharia de software por dia, com o Byte.', image = 'assets/byte_no_computador_suave.webp' } = Astro.props;
+const { title, description = 'Uma pílula por dia, alternando IA e engenharia de software, com o Byte.', image = 'assets/byte_no_computador_suave.webp' } = Astro.props;
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 const canon = new URL(Astro.url.pathname, Astro.site);
 const shareImage = new URL(`${base}${image}`, Astro.site);

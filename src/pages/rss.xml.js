@@ -53,7 +53,7 @@ export function GET({ site }) {
     '  <channel>',
     '    <title>Pílulas de Tecnologia</title>',
     '    <link>' + escapeXml(root.href) + '</link>',
-    '    <description>Uma pílula de IA e outra de engenharia de software: estudos com .NET, arquitetura e Byte.</description>',
+    '    <description>Uma pílula por dia, alternando IA e engenharia de software: .NET, arquitetura e Byte.</description>',
     '    <language>pt-BR</language>',
     '    <lastBuildDate>' + lastPublication + '</lastBuildDate>',
     '    <atom:link href="' + escapeXml(feedURL) + '" rel="self" type="application/rss+xml" />',

@@ -48,6 +48,6 @@ Adicione um objeto em `src/data/articles.json`, seguindo o esquema existente, e 
 
 ## Política editorial e LinkedIn
 
-Consulte [EDITORIAL.md](EDITORIAL.md). O plano de conteúdo combina **uma pílula de IA e outra de engenharia por dia**; as duas são entregues no ChatGPT e só são enviadas ao blog mediante solicitação do autor.
+Consulte [EDITORIAL.md](EDITORIAL.md). O plano de conteúdo entrega **uma pílula por dia**, alternando **IA** e **engenharia de software**. A pílula é entregue no ChatGPT e enviada ao blog somente quando o autor solicitar.
 
 O feed RSS público é `https://hedu59.github.io/pilulas-de-tecnologia/rss.xml`. Para compartilhar automaticamente cada novo artigo no perfil pessoal, conecte **RSS by Zapier → New Item in Feed** com **LinkedIn → Create Share Update**, usando o GUID/URL para identificar novidades, e mapeie título, resumo, imagem e link. Não é preciso uma chave da API da OpenAI para isso.

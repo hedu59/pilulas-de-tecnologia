@@ -1,33 +1,32 @@
 # Política editorial — Pílulas de Tecnologia
 
-## Duas trilhas, dois artigos por dia
+## Uma pílula por dia, alternando trilhas
 
-**Regra definida em 29/10/2026:** a programação de conteúdo deve ter **exatamente duas pílulas diferentes por dia**:
+**Regra editorial atualizada em 30/10/2026:** gerar **exatamente UMA pílula por dia**, alternando rigorosamente entre:
 
-1. **Uma de AI Engineering**, por exemplo: SDD, GitHub Spec Kit (constitution/spec/plan/tasks), agentes, skills, MCP, context engineering, RAG, embeddings, avaliação de agentes (evals), guardrails, prompt injection, segurança, tracing, observabilidade, custos e integração com .NET/Angular.
-2. **Uma de engenharia de software não dedicada a IA**, alternando: C#, .NET/ASP.NET Core, APIs, Angular, EF Core/Dapper, SQL Server/Oracle/Postgres, performance, SOLID, DDD, Clean Architecture, CQRS, design patterns, sistemas distribuídos, mensageria, consistência, observabilidade, Docker, Kubernetes, Cloud, CI/CD e DevSecOps.
+- **AI Engineering**: SDD, GitHub Spec Kit (constitution/spec/plan/tasks), agentes, skills, MCP, context engineering, RAG, embeddings, evals, guardrails, prompt injection, segurança, tracing, custos e integração .NET/Angular.
+- **Engenharia de software (não IA)**: C#, .NET/ASP.NET Core, APIs, Angular, EF Core/Dapper, SQL Server/Oracle/Postgres, performance, SOLID, DDD, Clean/Hexagonal, CQRS, design patterns, sistemas distribuídos, mensageria, consistência, observabilidade, Docker, Kubernetes, Cloud, CI/CD e DevSecOps.
 
-As pílulas são **artigos autônomos**, com números diferentes e ordenados em uma única sequência no blog. Deve-se conferir a última edição antes de numerar e não repetir assuntos já cobertos.
-
-Para cada uma: problema prático, explicação, exemplo de código, decisões e trade-offs, diagrama técnico, ilustração original do Byte (se disponível), armadilhas, entrevista Sênior com resposta, desafio curto e fontes oficiais. Sempre evitar material confidencial.
+**Nunca publicar duas pílulas no mesmo dia como parte da programação**, nem repetir a mesma trilha em dias consecutivos. Cada nova pílula ocupa um número único na sequência do blog. Consultar edições anteriores para evitar repetição de temas.
 
 ## Próximas edições planejadas
 
-- **#008 / AI Engineering:** Do SPEC ao PLAN — como transformar requisitos em decisões arquiteturais com IA.
-- **#009 / .NET & C#:** Concorrência e requisições assíncronas no ASP.NET Core — quando usar `async/await` e o que não resolve.
+- **#008 — IA (próximo dia):** Do SPEC ao PLAN — requisitos para decisões arquiteturais com IA.
+- **#009 — Engenharia de software (dia seguinte):** Concorrência e requisições assíncronas no ASP.NET Core — quando usar `async/await` e o que não resolve.
+- **#010 — IA**; **#011 — Engenharia de software**; e assim sucessivamente, mantendo a alternância.
 
-Esses títulos são uma **proposta de pauta**, não significam que já tenham sido publicados. As pautas seguintes devem alternar assunto e aprofundar os conceitos sem repetição.
+As pautas são planejamento; não significam que os artigos já tenham sido publicados.
 
-## Rotina e publicação
+## Qualidade técnica
 
-- Uma automação existente no ChatGPT prepara as duas pílulas diariamente às 22h (America/Sao_Paulo).
-- O autor **solicita separadamente** a publicação no blog, evitando uso de API paga de IA.
-- Um commit na branch `main` aciona GitHub Actions para compilar e publicar o site.
-- `src/pages/rss.xml.js` gera o feed RSS de cada artigo publicado, incluindo título, descrição, link permanente, data, trilha e a capa original do Byte.
-- Um Zap externo pode detectar **cada nova entrada** do RSS e compartilhar automaticamente no LinkedIn pessoal. Não se deve configurar a postagem do LinkedIn antes de confirmar/autorizar a conta do autor.
+Cada artigo deve ter um conceito para 15–20 minutos, problema real, explicação e analogia, exemplo de código, alternativas e trade-offs, armadilhas, diagrama técnico, entrevista Sênior com resposta, desafio, referência oficial e ilustração original do Byte (quando disponível). Respeitar informações confidenciais.
 
-**O RSS publica somente artigos efetivamente presentes no repositório**, não textos gerados apenas no ChatGPT.
+## Criação, publicação e distribuição
 
-## Distribuição
+- A automação **Engineering Mastery** do ChatGPT entrega **uma única pílula diariamente às 22h** (fuso America/Sao_Paulo), alternando temas.
+- O autor solicita **separadamente** o envio do artigo ao blog. Não há geração automática por API da OpenAI no GitHub.
+- Cada commit na branch `main` aciona o GitHub Actions para validar, compilar e publicar o site Astro.
+- O feed `src/pages/rss.xml.js` lista individualmente as pílulas que já foram efetivamente publicadas, com GUID permanente, link, descrição, trilha, data e capa do Byte.
+- Opcionalmente, RSS by Zapier pode compartilhar **cada novo artigo publicado** no LinkedIn pessoal, após conexão e ativação pelo autor.
 
-Publicar as duas entradas no mesmo dia é o objetivo editorial; a ordem ou horários exatos no site dependem do pedido do autor e do deploy. No LinkedIn, cada entrada tem seu próprio GUID imutável para evitar repostagem indevida em atualizações de estilo ou documentação.
+O RSS não divulga textos gerados somente no ChatGPT sem que sejam publicados no repositório. O agendamento não garante que o artigo já esteja no blog ou no LinkedIn.
