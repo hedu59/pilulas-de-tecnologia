@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1200" role="img" aria-labelledby="title desc">
+<title id="title">Pílula 008 — Do SPEC ao PLAN</title>
+<desc id="desc">Byte, macaquinho desenvolvedor de moletom turquesa, transforma requisitos em um mapa de arquitetura com API, domínio, persistência e testes.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e6faf1"/><stop offset=".55" stop-color="#f8fcf6"/><stop offset="1" stop-color="#dcf1ed"/></linearGradient>
+<linearGradient id="hoodie" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#18ae9c"/><stop offset="1" stop-color="#087a80"/></linearGradient>
+<linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#f6fcfa"/></linearGradient>
+<filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#30675b" flood-opacity=".16"/></filter>
+</defs>
+<rect width="960" height="1200" fill="url(#bg)"/>
+<circle cx="867" cy="160" r="182" fill="#b2eadf" opacity=".32"/><circle cx="83" cy="980" r="245" fill="#b9eadb" opacity=".32"/>
+<path d="M0 1050 Q450 940 960 1075 V1200 H0Z" fill="#cceee3" opacity=".65"/>
+<rect x="56" y="55" width="390" height="55" rx="27" fill="#b4eee2"/>
+<text x="251" y="92" text-anchor="middle" fill="#176e6e" font-size="28" font-family="Arial,sans-serif" font-weight="800">PÍLULA #008 · IA</text>
+<text x="58" y="194" fill="#103742" font-family="Arial,sans-serif" font-size="88" font-weight="900" letter-spacing="-3">DO SPEC</text>
+<text x="58" y="285" fill="#0c948e" font-family="Arial,sans-serif" font-size="86" font-weight="900" letter-spacing="-3">AO PLAN</text>
+<text x="58" y="344" fill="#42616a" font-family="Arial,sans-serif" font-size="31">Transforme requisitos em</text>
+<text x="58" y="387" fill="#42616a" font-family="Arial,sans-serif" font-size="31">decisões de arquitetura com IA</text>
+<!-- Byte's tail and hoodie -->
+<path d="M180 924 C78 954 47 885 85 821 C118 770 155 816 128 850" fill="none" stroke="#a85f2e" stroke-width="41" stroke-linecap="round"/>
+<ellipse cx="277" cy="993" rx="210" ry="208" fill="url(#hoodie)" filter="url(#shadow)"/>
+<path d="M205 847 Q279 908 351 850" fill="none" stroke="#42d2bc" stroke-width="16" stroke-linecap="round"/>
+<ellipse cx="149" cy="642" rx="69" ry="90" fill="#a96335"/><ellipse cx="415" cy="642" rx="69" ry="90" fill="#a96335"/>
+<ellipse cx="149" cy="642" rx="44" ry="59" fill="#f1b78d"/><ellipse cx="415" cy="642" rx="44" ry="59" fill="#f1b78d"/>
+<path d="M201 474 Q232 419 258 463 Q281 410 309 466 Q340 430 358 481" fill="#a55c2d"/>
+<ellipse cx="280" cy="648" rx="176" ry="191" fill="#b66d36" filter="url(#shadow)"/>
+<ellipse cx="281" cy="701" rx="141" ry="127" fill="#f3c69c"/>
+<ellipse cx="223" cy="644" rx="53" ry="70" fill="white"/><ellipse cx="334" cy="644" rx="53" ry="70" fill="white"/>
+<ellipse cx="231" cy="650" rx="29" ry="40" fill="#2e2928"/><ellipse cx="343" cy="650" rx="29" ry="40" fill="#2e2928"/>
+<circle cx="242" cy="637" r="11" fill="white"/><circle cx="353" cy="637" r="11" fill="white"/>
+<ellipse cx="285" cy="718" rx="26" ry="18" fill="#a85e3b"/>
+<path d="M245 764 Q286 810 331 764" fill="none" stroke="#74442f" stroke-width="12" stroke-linecap="round"/>
+<path d="M142 1014 Q180 941 222 953" fill="none" stroke="#078b83" stroke-width="65" stroke-linecap="round"/>
+<!-- SPEC card -->
+<g transform="rotate(-8 284 1030)" filter="url(#shadow)">
+<rect x="179" y="875" width="237" height="250" rx="22" fill="url(#panel)" stroke="#a8d9ce" stroke-width="4"/>
+<rect x="203" y="905" width="190" height="52" rx="12" fill="#d0f1e7"/>
+<text x="298" y="942" text-anchor="middle" fill="#157c76" font-size="31" font-weight="900" font-family="Arial,sans-serif">SPEC ✓</text>
+<g font-size="20" font-family="Arial,sans-serif" fill="#43636b"><text x="214" y="998">☑ Requisitos</text><text x="214" y="1037">☑ Cenários</text><text x="214" y="1076">☑ Restrições</text></g>
+</g>
+<!-- transition arrow -->
+<path d="M468 660 C510 613 538 614 580 653" fill="none" stroke="#17a794" stroke-width="15" stroke-linecap="round"/>
+<path d="M559 622 L600 663 L546 672" fill="none" stroke="#17a794" stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>
+<!-- Architecture board -->
+<g filter="url(#shadow)">
+<rect x="546" y="485" width="364" height="627" rx="30" fill="url(#panel)" stroke="#6cbbae" stroke-width="5"/>
+<rect x="564" y="505" width="330" height="84" rx="19" fill="#146f73"/>
+<text x="729" y="558" text-anchor="middle" fill="#ffffff" font-size="45" font-weight="900" font-family="Arial,sans-serif">PLAN</text>
+<rect x="577" y="613" width="298" height="84" rx="17" fill="#e6f4ff" stroke="#a6d5e4"/>
+<text x="600" y="651" fill="#1a5772" font-size="27" font-weight="800" font-family="Arial,sans-serif">01 · API</text><text x="600" y="682" fill="#3e6478" font-size="20" font-family="Arial,sans-serif">Contratos e autorização</text>
+<rect x="577" y="712" width="298" height="84" rx="17" fill="#e2f8f2" stroke="#a1ded1"/>
+<text x="600" y="749" fill="#17635c" font-size="27" font-weight="800" font-family="Arial,sans-serif">02 · DOMÍNIO</text><text x="600" y="780" fill="#3b756c" font-size="20" font-family="Arial,sans-serif">Regras e casos de uso</text>
+<rect x="577" y="811" width="298" height="84" rx="17" fill="#f2eafa" stroke="#d2bde9"/>
+<text x="600" y="848" fill="#67518a" font-size="27" font-weight="800" font-family="Arial,sans-serif">03 · DADOS</text><text x="600" y="879" fill="#755f92" font-size="20" font-family="Arial,sans-serif">Persistência e concorrência</text>
+<rect x="577" y="910" width="298" height="84" rx="17" fill="#fff3df" stroke="#e4d1a3"/>
+<text x="600" y="947" fill="#95651b" font-size="27" font-weight="800" font-family="Arial,sans-serif">04 · TESTES</text><text x="600" y="978" fill="#916d36" font-size="20" font-family="Arial,sans-serif">Aceite, integração e falhas</text>
+<text x="728" y="1059" text-anchor="middle" fill="#26877b" font-size="23" font-family="Arial,sans-serif" font-weight="700">Decisões + trade-offs</text>
+</g>
+<rect x="56" y="1135" width="848" height="43" rx="20" fill="#125e62"/>
+<text x="480" y="1165" text-anchor="middle" font-family="Arial,sans-serif" fill="white" font-size="25" font-weight="700">Uma SPEC clara. Um PLAN justificável.</text>
+</svg>
