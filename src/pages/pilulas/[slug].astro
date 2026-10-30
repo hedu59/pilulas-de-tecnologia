@@ -1,0 +1,38 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import articles from '../../data/articles.json';
+export function getStaticPaths(){
+  return articles.map(article => ({ params: { slug: article.slug }, props: { article } }));
+}
+const {article} = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+const index = articles.findIndex(item=>item.slug===article.slug);
+const previous = articles[index+1];
+const next = articles[index-1];
+const content = article.html.replaceAll('__ROOT__',base);
+---
+<SiteLayout title={`Pílula #${article.num}: ${article.title}`} description={article.excerpt} image={`assets/${article.cover}`}>
+  <div id="reader-progress" class="reader-progress" aria-hidden="true"></div>
+  <div class="site-wrap">
+    <aside class="sidebar" aria-label="Navegação da leitura">
+      <p class="eyebrow">Navegação</p>
+      <a class="side-link" href={base}><span class="dot"></span>Visão geral</a>
+      <a class="side-link" href={`${base}#artigos`}><span class="dot"></span>Todas as pílulas</a>
+      <p class="eyebrow">Trilhas</p>
+      <a class="side-link" href={`${base}#artigos`}><span class="dot"></span>{article.category}</a>
+      <p class="eyebrow">Nesta pílula</p>
+      <a class="side-link active" href="#inicio"><span class="dot"></span>Pílula #{article.num}</a>
+      <div class="sidebar-note"><strong>Como estudar:</strong><br/>Leia a explicação, veja o diagrama, teste o código e responda à pergunta de entrevista.</div>
+    </aside>
+    <main class="content" id="inicio">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href={base}>Biblioteca</a><span>›</span><a href={`${base}#artigos`}>{article.category}</a><span>›</span><span>Pílula #{article.num}</span></nav>
+      <div class="mobile-topic"><a href={base}>← Biblioteca</a><a href={`${base}#artigos`}>{article.category}</a></div>
+      <article class="article-page" set:html={content}></article>
+      <nav class="article-nav" aria-label="Navegar entre pílulas">
+        <div>{previous ? <a href={`${base}pilulas/${previous.slug}/`}>← Pílula #{previous.num}</a> : <a href={base}>← Biblioteca</a>}</div>
+        <div>{next ? <a href={`${base}pilulas/${next.slug}/`}>Pílula #{next.num} →</a> : <a href={`${base}#artigos`}>Ver todas →</a>}</div>
+      </nav>
+      <footer class="footer">Pílulas de Tecnologia · Conteúdo por Eduardo Oliveira · © 2026</footer>
+    </main>
+  </div>
+</SiteLayout>

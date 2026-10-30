@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL+'/';
+---
+<SiteLayout title="Página não encontrada">
+  <main style="max-width:740px;margin:13vh auto;padding:24px;text-align:center">
+  <img src={`${base}assets/byte_icon.webp`} alt="Byte" style="max-width:110px" />
+  <h1>Essa pílula ainda não está na biblioteca.</h1>
+  <p>Volte à página inicial para encontrar conteúdos disponíveis.</p>
+  <a class="pill-button" href={base}>Ver todas as pílulas</a>
+  </main>
+</SiteLayout>

@@ -1,3 +1,1 @@
-# Pílulas de Tecnologia
-
-Site Astro com sete pílulas do programa Engineering Mastery. Publicação via GitHub Pages.
+The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.

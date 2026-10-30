@@ -1,0 +1,61 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import articles from '../data/articles.json';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+---
+<SiteLayout title="Aprenda engenharia de software com Byte" description="Pílulas curtas, ilustrações originais e exemplos reais de .NET, arquitetura e AI Engineering.">
+<div class="site-wrap">
+  <aside class="sidebar" aria-label="Trilhas de estudo">
+    <p class="eyebrow">Navegação</p>
+    <a class="side-link active" href={base}><span class="dot"></span>Visão geral</a>
+    <a class="side-link" href="#artigos"><span class="dot"></span>Todas as pílulas</a>
+    <p class="eyebrow">Trilhas</p>
+    <a class="side-link" data-side-category=".NET & C#" href="#artigos"><span class="dot"></span>.NET &amp; C#</a>
+    <div class="side-link soon"><span class="dot"></span>Bancos de dados</div>
+    <div class="side-link soon"><span class="dot"></span>Arquitetura</div>
+    <div class="side-link soon"><span class="dot"></span>Sistemas distribuídos</div>
+    <div class="side-link soon"><span class="dot"></span>Cloud &amp; DevOps</div>
+    <a class="side-link" data-side-category="AI Engineering" href="#artigos"><span class="dot"></span>AI Engineering</a>
+    <div class="sidebar-note"><strong>Uma ideia por dia.</strong><br/>Conteúdo prático e visual com exemplos C#, diagramas, entrevistas e exercícios.</div>
+  </aside>
+  <main class="content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <span class="tag">📚 Biblioteca aberta de estudos</span>
+        <h1 id="hero-title">Aprenda engenharia de software, uma pílula por dia.</h1>
+        <p>Uma biblioteca pessoal de Eduardo Oliveira. Do ASP.NET Core à arquitetura de software, com foco especial em Spec-Driven Development e AI Engineering — sempre com o Byte ajudando a visualizar cada conceito.</p>
+        <div class="hero-stats"><span>✦ Textos curtos</span><span>◈ Diagramas claros</span><span>⌘ Código real</span></div>
+        <div class="stats-panel"><span><strong>{articles.length}</strong> pílulas disponíveis</span><span><strong>2</strong> trilhas em andamento</span></div>
+      </div>
+      <div class="hero-figure"><img src={`${base}assets/byte_no_computador_suave.webp`} alt="Byte, macaquinho desenvolvedor em moletom turquesa, trabalhando no notebook" width="800" height="600" loading="eager"/></div>
+    </section>
+    <section id="artigos" aria-labelledby="articles-heading">
+      <div class="section-head"><h2 id="articles-heading">Todas as pílulas</h2><span id="article-count">{articles.length} artigos na biblioteca</span></div>
+      <label class="search-wrap">
+        <svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 5 5"></path></svg>
+        <input aria-label="Buscar artigos" id="article-search" placeholder="Buscar por assunto, tecnologia ou palavra-chave..." type="search"/>
+      </label>
+      <div class="chips" aria-label="Filtrar por trilha">
+        <button aria-pressed="true" class="chip active" data-category="Todos" type="button">Todos</button>
+        <button aria-pressed="false" class="chip" data-category=".NET & C#" type="button">.NET &amp; C#</button>
+        <button aria-pressed="false" class="chip" data-category="AI Engineering" type="button">AI Engineering</button>
+      </div>
+      <div class="article-grid" id="article-grid">
+        {articles.map(article => (
+          <a class="article-card" data-category={article.category} data-title={`${article.num} ${article.title} ${article.excerpt} ${article.keywords}`} href={`${base}pilulas/${article.slug}/`}>
+            <div class="article-cover"><img src={`${base}assets/${article.cover}`} alt={`Ilustração original do Byte para a pílula ${article.num}: ${article.title}`} loading="lazy" /></div>
+            <div class="article-content">
+              <span class="tag">Pílula #{article.num} · {article.category}</span>
+              <h3>{article.title}</h3><p>{article.excerpt}</p>
+              <div class="article-meta"><span>{article.date}</span><span>{article.reading}</span><span>{article.level}</span></div>
+            </div>
+          </a>
+        ))}
+        <div class="coming-card" id="coming-card"><div class="emoji">🌱</div><span class="tag soft">Em evolução</span><h3>Uma trilha que cresce a cada dia</h3><p>Novas pílulas serão adicionadas aqui. Você pode voltar e revisar os conceitos anteriores quando quiser.</p></div>
+      </div>
+      <div class="empty-state" id="empty-state" role="status">Ainda não há artigos encontrados. Experimente outra busca.</div>
+    </section>
+    <footer class="footer">Pílulas de Tecnologia · Eduardo Oliveira · Ilustrações originais do Byte · © 2026</footer>
+  </main>
+</div>
+</SiteLayout>

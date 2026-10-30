@@ -1,0 +1,36 @@
+---
+interface Props { title: string; description?: string; image?: string }
+const { title, description = 'Uma pílula de tecnologia por dia: .NET, arquitetura, SDD e AI Engineering com o Byte.', image = 'assets/byte_no_computador_suave.webp' } = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+const canon = new URL(Astro.url.pathname, Astro.site);
+const shareImage = new URL(`${base}${image}`, Astro.site);
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#f7faf8"/>
+  <meta name="description" content={description}/>
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={shareImage.href} />
+  <link rel="canonical" href={canon.href}/>
+  <link rel="icon" href={`${base}assets/byte_icon.webp`} type="image/png"/>
+  <link rel="stylesheet" href={`${base}assets/styles.css`}/>
+  <title>{title} — Pílulas de Tecnologia</title>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href={base}><span aria-hidden="true" class="brand-icon"><img alt="" src={`${base}assets/byte_icon.webp`}/></span><span>Pílulas de Tecnologia</span></a>
+    <nav class="topbar-right" aria-label="Navegação principal">
+      <a href={`${base}#artigos`}>Pílulas</a><a class="pill-button" href={`${base}#artigos`}>Começar a estudar</a>
+    </nav>
+  </header>
+  <slot />
+  <button id="scroll-up" class="scroll-up" type="button" aria-label="Voltar ao topo" hidden>↑</button>
+  <script is:inline src={`${base}assets/site.js`} defer></script>
+</body>
+</html>
