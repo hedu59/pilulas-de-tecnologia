@@ -29,10 +29,11 @@ export function GET({ site }) {
 
   const rssItems = items.map(article => {
     if (!/^[a-z0-9-]+$/.test(article.slug)) throw new Error('Slug inseguro: ' + article.slug);
-    if (!/^[a-z0-9_-]+\.webp$/.test(article.cover)) throw new Error('Arquivo de capa inválido: ' + article.cover);
+    if (!/^[a-z0-9_-]+\.(?:webp|png)$/.test(article.cover)) throw new Error('Arquivo de capa inválido: ' + article.cover);
     const link = new URL('pilulas/' + article.slug + '/', root).href;
     const cover = new URL('assets/' + article.cover, root).href;
     const bytes = statSync(join(process.cwd(), 'public', 'assets', article.cover)).size;
+    const imageType = article.cover.endsWith('.png') ? 'image/png' : 'image/webp';
     return [
       '    <item>',
       '      <title>' + escapeXml('Pílula #' + article.num + ': ' + article.title) + '</title>',
@@ -41,8 +42,8 @@ export function GET({ site }) {
       '      <description>' + escapeXml(article.excerpt) + '</description>',
       '      <category>' + escapeXml(article.category) + '</category>',
       '      <pubDate>' + publicationDate(article).toUTCString() + '</pubDate>',
-      '      <media:content url="' + escapeXml(cover) + '" type="image/webp" medium="image" />',
-      '      <enclosure url="' + escapeXml(cover) + '" length="' + bytes + '" type="image/webp" />',
+      '      <media:content url="' + escapeXml(cover) + '" type="' + imageType + '" medium="image" />',
+      '      <enclosure url="' + escapeXml(cover) + '" length="' + bytes + '" type="' + imageType + '" />',
       '    </item>'
     ].join('\n');
   }).join('\n');
