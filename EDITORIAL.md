@@ -19,7 +19,7 @@ As pautas são planejamento; não significam que os artigos já tenham sido publ
 
 ## Qualidade técnica
 
-Cada artigo deve ter um conceito para 15–20 minutos, problema real, explicação e analogia, exemplo de código, alternativas e trade-offs, armadilhas, diagrama técnico, entrevista Sênior com resposta, desafio, referência oficial e ilustração original do Byte (quando disponível). Respeitar informações confidenciais.
+Cada artigo deve ter um conceito para 15–20 minutos, problema real, explicação e analogia, exemplo de código, alternativas e trade-offs, armadilhas, diagrama técnico, pergunta de entrevista Sênior com resposta em português, quando agregar valor, desafio, referência oficial e ilustração original do Byte (quando disponível). Nas próximas pílulas, não incluir pergunta, resposta ou seção de entrevista em inglês (como “Entrevista internacional” ou “Interviewer”). Respeitar informações confidenciais.
 
 ## Criação, publicação e distribuição
 
