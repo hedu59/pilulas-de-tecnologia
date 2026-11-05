@@ -1,0 +1,71 @@
+{
+  "note": "Capas pré-existentes no momento de ativação do guardrail, mantidas sem aprovação retroativa. Não adicionar novas entradas aqui.",
+  "snapshotCommit": "b40e4bc7249bfdfcecbbb41462f024dfc29c86bf",
+  "articles": {
+    "001-ciclo-requisicao-http": {
+      "num": "001",
+      "file": "pilula_001_http.webp",
+      "blob": "55ca54799aa37edfdc31f45ca042a70013f6619b"
+    },
+    "002-injecao-dependencia-ciclos-de-vida": {
+      "num": "002",
+      "file": "pilula_002_di.webp",
+      "blob": "7f0b2a9a4d6d3342c2515174c7ffe8bc05c09bba"
+    },
+    "003-dbcontext-unit-of-work": {
+      "num": "003",
+      "file": "pilula_003_unit_of_work.webp",
+      "blob": "03e547b5c8e3ad2b254c22c83942035fef11d561"
+    },
+    "004-spec-driven-development-ia": {
+      "num": "004",
+      "file": "pilula_004_sdd_ia.webp",
+      "blob": "cf374bcab20a9789747df92e3b0b1a83292dab5f"
+    },
+    "005-context-engineering": {
+      "num": "005",
+      "file": "pilula_005_context_engineering.webp",
+      "blob": "c6ead55ac084f7f2a3532254ecac46e813a5a88d"
+    },
+    "006-constitution-spec-kit": {
+      "num": "006",
+      "file": "pilula_006_constitution.webp",
+      "blob": "920b70e7f53b7742f53c01021f003cb27625e27e"
+    },
+    "007-spec-requisitos-verificaveis": {
+      "num": "007",
+      "file": "pilula_007_spec.webp",
+      "blob": "2b1fa6d14627146cebc6694b55a3ca47262da856"
+    },
+    "008-do-spec-ao-plan": {
+      "num": "008",
+      "file": "byte-008-spec-plan.png",
+      "blob": "a6ff08a2bcd12d422e3f9969f589dc153e95ebd0"
+    },
+    "009-concorrencia-async-await-aspnet-core": {
+      "num": "009",
+      "file": "byte-009-concorrencia.png",
+      "blob": "11be2099bb733b5308db7c9029033c24610d8d02"
+    },
+    "010-do-plan-ao-tasks": {
+      "num": "010",
+      "file": "byte-010-plan-tasks.png",
+      "blob": "c1b57cf6cce1c8f4a0e242bc5db745e458bd2624"
+    },
+    "011-idempotencia-em-apis-dotnet": {
+      "num": "011",
+      "file": "byte-011-idempotencia.png",
+      "blob": "5687918dcbc7284bfc01407ce16927eda05164be"
+    },
+    "012-do-tasks-ao-implement": {
+      "num": "012",
+      "file": "byte-012-tasks-implement.webp",
+      "blob": "78b0f0a3c4b73b7de82502b09d2b3886dbef44a2"
+    },
+    "013-transactional-outbox-pattern": {
+      "num": "013",
+      "file": "byte-013-transactional-outbox-aprovada.webp",
+      "blob": "b59088f78b8cf8d4c9648d4ff10e8d5ab9717d2b"
+    }
+  }
+}

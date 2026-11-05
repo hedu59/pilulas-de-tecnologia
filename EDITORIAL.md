@@ -30,3 +30,16 @@ Cada artigo deve ter um conceito para 15–20 minutos, problema real, explicaç�
 - Opcionalmente, RSS by Zapier pode compartilhar **cada novo artigo publicado** no LinkedIn pessoal, após conexão e ativação pelo autor.
 
 O RSS não divulga textos gerados somente no ChatGPT sem que sejam publicados no repositório. O agendamento não garante que o artigo já esteja no blog ou no LinkedIn.
+
+
+## Guardrail obrigatório de arte — aprovação autoral
+
+**Regra vigente a partir da pílula #014:** a publicação no GitHub Pages é bloqueada quando um artigo novo ou uma troca de capa não possui aprovação da **imagem exata** pela conta `hedu59`.
+
+1. Prepare o artigo e a arte do Byte, mas não publique ainda.
+2. Apresente a arte final ao autor; só após ele aprovar, informe o nome do arquivo e o hash Git blob no comentário.
+3. O autor abre a [issue de aprovação #1](https://github.com/hedu59/pilulas-de-tecnologia/issues/1) e comenta, a partir da própria conta, exatamente: `APROVO CAPA #014 ARQUIVO=arquivo.webp BLOB=<hash-git-da-capa>`.
+4. O passo `npm run validate` verifica a imagem original, seu hash e o comentário autêntico, antes de gerar/publicar o site. Sem comprovação, o workflow **falha sem deploy**. Se a imagem mudar, é preciso nova aprovação. O autor pode revogar com `REVOGO CAPA #014 ARQUIVO=arquivo.webp BLOB=<hash>`.
+5. As capas #001–#013 atualmente publicadas ficam registradas em `.github/legacy-cover-snapshot.json` como estado histórico inicial. Qualquer alteração posterior de suas capas exige aprovação.
+
+**Importante:** uma mensagem de aprovação no ChatGPT, isoladamente, não pode ser autenticada pelo CI do GitHub. O comentário pela conta pessoal resolve essa comprovação. A proteção é implementada no workflow, porém **um usuário com permissão de escrita poderia alterar o próprio workflow ou o script**; para tornar o bloqueio resistente a modificações administrativas, é necessário configurar uma regra de proteção de branch/CODEOWNERS exigindo revisão humana de mudanças em `.github/workflows/`, `scripts/validate-cover-approvals.mjs` e `.github/legacy-cover-snapshot.json`.
