@@ -1,5 +1,19 @@
 [
   {
+    "num": "022",
+    "slug": "022-como-medir-melhoria-agente-ia",
+    "title": "Seu agente passou no teste. E nas próximas três rodadas?",
+    "category": "AI Engineering",
+    "reading": "8 min",
+    "level": "Intermediário",
+    "cover": "byte-022-evals-oficina.png",
+    "keywords": "evals, regressão, prompt, testes de agentes, consistência, avaliação de IA",
+    "excerpt": "O prompt novo acertou mais, mas confirmou uma revisão que não estava na agenda. Byte mostra como repetir os testes e detectar regressões antes da troca.",
+    "html": "<span class=\"tag\">Pílula #022</span>\n<h1>🐵 Pílula #022: Seu agente passou no teste. E nas próximas três rodadas?</h1>\n<div class=\"article-meta\">AI Engineering · 8 minutos · Intermediário</div>\n<figure><img src=\"__ROOT__assets/byte-022-evals-oficina.png\" alt=\"Byte compara o desempenho de dois prompts em testes de agendamento de uma oficina\"></figure>\n<p>Byte mudou o prompt do agente de uma oficina. Pediu “Marque minha revisão para terça às 15h”, recebeu a confirmação e viu a reserva na agenda. Tudo certo. Mas o mesmo teste, rodado de novo, daria o mesmo resultado?</p>\n<p>Ao contrário de um teste sobre uma função determinística, uma única execução com IA não mostra se o acerto é consistente. Para comparar os prompts A e B, Byte rodou <strong>os mesmos quatro casos, três vezes por versão</strong>. Manteve o modelo e as ferramentas iguais e reiniciou a agenda simulada antes de cada rodada, para uma reserva não interferir na seguinte.</p>\n<p><strong>Acertos no teste da oficina (números fictícios):</strong></p>\n<ul>\n<li>Horário livre: <strong>2/3 → 3/3</strong></li>\n<li>Horário ocupado: <strong>1/3 → 3/3</strong></li>\n<li>Cliente só quer consultar horários: <strong>3/3 → 3/3</strong></li>\n<li>Ferramenta de agendamento falha sem gravar: <strong>3/3 → 2/3</strong></li>\n</ul>\n<p>O B subiu de <strong>9 para 11 acertos em 12 rodadas</strong>. Mesmo assim, Byte não trocaria o prompt ainda. Justo na última linha apareceu uma regressão: em uma das rodadas, o agente disse “Está marcado!” sem existir reserva na agenda.</p>\n<h2>Como testar isso no seu agente</h2>\n<p>Para o caso de falha, faça a ferramenta devolver um erro conhecido e verifique duas coisas: <strong>se o agente informou que não conseguiu marcar</strong> e <strong>se a agenda continuou intacta</strong>. Defina antes do teste que uma confirmação falsa bloqueia a troca de versão, mesmo com uma média melhor.</p>\n<p>Três rodadas são um ponto de partida para flagrar inconsistências, não uma prova de estabilidade. Rode mais vezes nos cenários em que um erro tem consequências e guarde os casos que já deram problema para repetir nas próximas mudanças.</p>\n<p><strong>Desafio do Byte:</strong> pegue um teste que passou uma vez. Rode de novo com o mesmo estado inicial e compare o que o agente <strong>disse</strong> com o que ele <strong>fez</strong>.</p>\n<p><a href=\"https://www.anthropic.com/research/demystifying-evals-for-ai-agents\">Referência: como avaliar agentes de IA, Anthropic</a></p>",
+    "date": "24 nov. 2026",
+    "publishedOn": "2026-11-24"
+  },
+  {
     "num": "021",
     "slug": "021-cancellation-token-aspnet-core",
     "title": "CancellationToken no ASP.NET Core: o cliente saiu. E a requisição?",
