@@ -1,5 +1,19 @@
 [
   {
+    "num": "023",
+    "slug": "023-paginacao-por-cursor-ef-core",
+    "title": "Paginação no EF Core: por que o mesmo livro apareceu duas vezes?",
+    "category": "Engenharia de Software",
+    "reading": "5 min",
+    "level": "Intermediário",
+    "cover": "byte-023-paginacao-cursor.png",
+    "keywords": "EF Core, paginação, cursor, keyset pagination, Skip, Take, C#",
+    "excerpt": "Um livro novo entra no catálogo e outro aparece duas vezes. Byte mostra como a paginação por cursor evita esse problema com um marcador no último ID da página.",
+    "html": "<span class=\"tag\">Pílula #023</span>\n<h1>🐵 Pílula #023: Paginação no EF Core: por que o mesmo livro apareceu duas vezes?</h1>\n<div class=\"article-meta\">Engenharia de Software · 5 minutos · Intermediário</div>\n<figure><img src=\"__ROOT__assets/byte-023-paginacao-cursor.png\" alt=\"Byte marca o livro 104 e aponta para os próximos livros do catálogo: 103, 102 e 101\"></figure>\n<p>Byte está montando o catálogo de uma biblioteca. A tela mostra três livros por vez, em ordem decrescente de ID. Na primeira página aparecem <strong>106, 105 e 104</strong>.</p>\n<p>Antes de alguém clicar em “Carregar mais”, a biblioteca cadastra o livro <strong>107</strong>. Agora o catálogo começa assim: <strong>107, 106, 105, 104, 103, 102, 101, 100…</strong></p>\n<p>Se a API buscar a próxima página com <code>Skip(3).Take(3)</code>, ela pula 107, 106 e 105 e devolve <strong>104, 103 e 102</strong>. O 104 apareceu de novo: a posição mudou entre uma requisição e outra.</p>\n<h2>Em vez de contar posições, marque onde parou</h2>\n<p>A primeira página terminou no livro 104. A próxima pode pedir: <strong>“Traga os próximos três livros com ID menor que 104.”</strong> O resultado é <strong>103, 102 e 101</strong>, mesmo com o 107 no topo. Esse é o princípio da <strong>paginação por cursor</strong> (ou <em>keyset pagination</em>).</p>\n<pre><code class=\"language-csharp\">const int tamanho = 3;\n\nvar consulta = db.Livros.AsNoTracking();\n\nif (cursor is int ultimoId)\n    consulta = consulta.Where(l =&gt; l.Id &lt; ultimoId);\n\nvar resultado = await consulta\n    .OrderByDescending(l =&gt; l.Id)\n    .Take(tamanho + 1)\n    .ToListAsync(cancellationToken);\n\nvar livros = resultado.Take(tamanho).ToList();\nint? proximoCursor = resultado.Count &gt; tamanho\n    ? livros[^1].Id\n    : null;\n</code></pre>\n<p>Na primeira chamada, o cursor é nulo. Nas seguintes, o cliente devolve o <code>proximoCursor</code>. A API busca <strong>um item a mais</strong> só para saber se ainda tem resultados. O cursor vem do último livro <strong>entregue</strong>, não do item extra. No exemplo, o próximo cursor é <strong>101</strong>, não 100.</p>\n<h2>Quando escolher cada um?</h2>\n<ul>\n<li><strong>Cursor:</strong> ótimo para “Carregar mais” e rolagem infinita. Se a ordem for por data, use também o ID para desempatar: ordene por <code>CriadoEm</code> e <code>Id</code>, guarde os dois no cursor e use um índice que acompanhe essa ordenação.</li>\n<li><strong><code>Skip/Take</code>:</strong> continua útil quando a tela precisa saltar direto para a página 12. Em páginas profundas, porém, o banco ainda precisa processar as linhas que vai pular.</li>\n</ul>\n<p>O cursor não congela o catálogo. Se você precisa ver o estado exato dos dados em um instante, isso é outro requisito.</p>\n<p><strong>Desafio do Byte:</strong> repita o exemplo sem inserir o 107. Desta vez, apague o 106 depois de ler a primeira página. Qual livro o <code>Skip(3)</code> deixa para trás? O que acontece com o cursor 104?</p>\n<p><a href=\"https://learn.microsoft.com/pt-br/ef/core/querying/pagination\">Referência: paginação no EF Core, Microsoft Learn</a></p>",
+    "date": "25 nov. 2026",
+    "publishedOn": "2026-11-25"
+  },
+  {
     "num": "022",
     "slug": "022-como-medir-melhoria-agente-ia",
     "title": "Seu agente passou no teste. E nas próximas três rodadas?",
